@@ -1,0 +1,26 @@
+<h1>Welcome</h1>
+
+
+<% unless current_user %>
+  <%= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter) %>
+<% else %>
+  Hi, you're signed in
+  <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+  <h1>Recent Tweets</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>From</th>
+        <th>Text</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @tweets.each do |t| %>
+        <tr>
+          <td>@<%= t.from_user %>:</td>
+          <td><%= t.text %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
