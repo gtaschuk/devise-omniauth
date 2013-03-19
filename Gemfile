@@ -12,6 +12,10 @@ gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'twitter'
 
+#gem 'factory_girl'
+gem 'factory_girl_rails'
+gem 'rspec-rails'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
