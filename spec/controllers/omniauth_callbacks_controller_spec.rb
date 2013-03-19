@@ -19,7 +19,7 @@ describe Users::OmniauthCallbacksController do
 
     end
 
-    it "find user when user exists" do
+    it "finds user when user exists" do
       # Create the user we'll find
       u = FactoryGirl.create(:user) 
 
@@ -34,7 +34,7 @@ describe Users::OmniauthCallbacksController do
       @user.should_not be_nil
     end
 
-    it "create user when user doesn't" do
+    it "creates user when user doesn't exist" do
       User.should_receive(:find_by_provider_and_uid).with(
         "twitter", 
         "twitter_uid"
