@@ -43,7 +43,7 @@ describe Users::OmniauthCallbacksController do
           uid:      "another_twitter_uid",
           email:    "support@gregtaschuk.com",
           password: anything()
-        )
+        ).and_return(FactoryGirl.create(:user)) 
         get :twitter
       end
     end
